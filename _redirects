@@ -1,0 +1,3 @@
+# Netlify redirects
+# Redirect www to apex
+https://www.forgelineco.com/* https://forgelineco.com/:splat 301!
