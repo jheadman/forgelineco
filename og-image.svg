@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Navy background -->
+  <rect width="1200" height="630" fill="#0F1C2E"/>
+
+  <!-- Decorative copper accent line (top-left to center-right) -->
+  <line x1="150" y1="100" x2="1050" y2="180" stroke="#C17F3E" stroke-width="3" opacity="0.6"/>
+
+  <!-- Subtle geometric accent: copper circle (top-right area) -->
+  <circle cx="1050" cy="150" r="80" fill="#C17F3E" opacity="0.08"/>
+
+  <!-- Main logo text -->
+  <g font-family="Georgia, serif" font-weight="400">
+    <!-- "Forge" in white -->
+    <text x="150" y="320" font-size="120" fill="white" letter-spacing="2">Forge</text>
+    <!-- "line" in copper -->
+    <text x="620" y="320" font-size="120" fill="#C17F3E" letter-spacing="2">line</text>
+  </g>
+
+  <!-- Tagline with letter spacing -->
+  <text x="150" y="420" font-family="Helvetica, Arial, sans-serif" font-size="32" fill="white" letter-spacing="3" opacity="0.85">
+    Strategic Intelligence &amp; Advisory
+  </text>
+
+  <!-- Bottom decorative accent line -->
+  <line x1="150" y1="480" x2="500" y2="480" stroke="#C17F3E" stroke-width="2" opacity="0.5"/>
+</svg>
