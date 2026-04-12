@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Intel to Action: When Research Becomes a Strategic Imperative | Forgeline</title>
+    <meta name="description" content="Most companies collect data. Few turn it into decisions. Explore the intelligence gap, OODA loops, and how to build the bridge from research to strategic action.">
+    <meta property="og:title" content="From Intel to Action: When Research Becomes a Strategic Imperative">
+    <meta property="og:description" content="How to transform competitive intelligence from background reading into the decisions that determine whether you win or lose.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://forgelineco.com/thinking-intel-to-action.html">
+    <meta property="og:image" content="https://forgelineco.com/og-article.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="From Intel to Action: When Research Becomes a Strategic Imperative">
+    <meta name="twitter:description" content="How competitive intelligence becomes strategy—and why most of it sits on the shelf.">
+    <meta name="twitter:image" content="https://forgelineco.com/og-article.png">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%230F1C2E'/%3E%3Cpath d='M8 8h16v3H12v4h10v3H12v8H8V8z' fill='%23C17F3E'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --navy:       #0F1C2E;
+            --navy-light: #1A2D47;
+            --copper:     #C17F3E;
+            --copper-light: #D4964F;
+            --teal:       #2A9D8F;
+            --teal-light: #3DB8A9;
+            --cream:      #FAF8F5;
+            --warm-gray:  #E8E4DE;
+            --text:       #1A1A2E;
+            --text-light: #5A5A6E;
+            --white:      #FFFFFF;
+        }
+
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        /* --- NAV --- */
+        .nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            padding: 1rem 0; transition: all 0.4s ease;
+        }
+        .nav.scrolled {
+            background: rgba(15, 28, 46, 0.97);
+            backdrop-filter: blur(12px);
+            padding: 0.6rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+        }
+        .nav-inner {
+            max-width: 1140px; margin: 0 auto; padding: 0 1.5rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .nav-brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+        .nav-logo-mark {
+            width: 34px; height: 34px;
+        }
+        .nav-logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem; font-weight: 700; color: var(--white);
+            letter-spacing: 0.02em;
+        }
+        .nav-logo-text span { color: var(--copper); }
+        .nav-links { display: flex; gap: 1.75rem; align-items: center; }
+        .nav-links a {
+            color: rgba(255,255,255,0.85); text-decoration: none;
+            font-size: 0.85rem; font-weight: 500; letter-spacing: 0.03em;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--copper-light); }
+        .nav-cta {
+            background: var(--copper) !important; color: var(--white) !important;
+            padding: 0.55rem 1.25rem !important; border-radius: 4px;
+            transition: background 0.3s !important;
+        }
+        .nav-cta:hover { background: var(--copper-light) !important; }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+        .hamburger span { width: 24px; height: 2px; background: var(--white); transition: all 0.3s; }
+
+        /* --- HERO (ARTICLE) --- */
+        .article-hero {
+            min-height: 60vh;
+            background: linear-gradient(165deg, var(--navy) 0%, var(--navy-light) 50%, #1E3A5F 100%);
+            display: flex; align-items: center; padding-top: 5rem; position: relative; overflow: hidden;
+        }
+        .article-hero::before {
+            content: ''; position: absolute; top: -30%; right: -15%;
+            width: 700px; height: 700px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(193,127,62,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .article-hero-content {
+            max-width: 740px; margin: 0 auto; padding: 3rem 1.5rem;
+            position: relative; z-index: 1;
+        }
+        .article-hero-label {
+            display: inline-block; color: var(--copper);
+            font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em;
+            text-transform: uppercase; margin-bottom: 1rem;
+            position: relative; padding-left: 2.5rem;
+        }
+        .article-hero-label::before {
+            content: ''; position: absolute; left: 0; top: 50%;
+            width: 1.75rem; height: 1px; background: var(--copper);
+        }
+        .article-hero h1 {
+            color: var(--white); font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1.25rem; line-height: 1.3;
+        }
+        .article-hero-meta {
+            display: flex; gap: 1.5rem; align-items: center;
+            color: rgba(255,255,255,0.7); font-size: 0.9rem;
+        }
+        .article-hero-meta span {
+            display: flex; align-items: center; gap: 0.4rem;
+        }
+
+        /* --- ARTICLE CONTENT --- */
+        .article-container {
+            max-width: 740px; margin: 0 auto; padding: 3.5rem 1.5rem;
+        }
+        .article-body {
+            font-size: 1rem; line-height: 1.85; color: var(--text);
+        }
+        .article-body p {
+            margin-bottom: 1.5rem;
+        }
+        .article-body p:first-of-type::first-letter {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            float: left;
+            line-height: 0.8;
+            margin-right: 0.4rem;
+            margin-top: 0.12rem;
+            color: var(--navy);
+            font-weight: 700;
+        }
+        .article-body h2 {
+            font-size: 1.75rem; margin: 2.5rem 0 1rem; color: var(--navy);
+        }
+        .article-body h3 {
+            font-size: 1.3rem; margin: 1.75rem 0 0.75rem; color: var(--navy-light);
+        }
+        .article-body ul, .article-body ol {
+            margin: 1.25rem 0 1.25rem 1.75rem; color: var(--text);
+        }
+        .article-body li {
+            margin-bottom: 0.6rem; line-height: 1.8;
+        }
+        .article-body strong {
+            color: var(--navy); font-weight: 600;
+        }
+        .article-body em {
+            color: var(--copper); font-style: italic;
+        }
+
+        /* --- STAT CALLOUT --- */
+        .stat-callout {
+            background: rgba(193,127,62,0.06); border-left: 4px solid var(--copper);
+            padding: 1.5rem; margin: 2rem 0; border-radius: 4px;
+        }
+        .stat-callout p {
+            margin: 0; font-size: 0.95rem; color: var(--text);
+        }
+        .stat-callout .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem; color: var(--copper); font-weight: 700;
+            display: block; margin-bottom: 0.3rem;
+        }
+
+        /* --- INLINE STAT BOX --- */
+        .stat-box {
+            display: inline-block; background: var(--cream);
+            padding: 1rem 1.5rem; border-radius: 6px;
+            border: 1px solid var(--warm-gray);
+            margin: 0.5rem 0.5rem 0.5rem 0;
+        }
+        .stat-box-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem; color: var(--copper); font-weight: 700;
+        }
+        .stat-box-label {
+            font-size: 0.82rem; color: var(--text-light);
+        }
+
+        /* --- BACK LINK --- */
+        .article-back {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            color: var(--copper); text-decoration: none;
+            font-weight: 500; font-size: 0.9rem;
+            margin-bottom: 1rem; transition: color 0.3s;
+        }
+        .article-back:hover { color: var(--copper-light); }
+        .article-back::before { content: '\2190'; }
+
+        /* --- CTA SECTION --- */
+        .article-cta {
+            background: var(--cream); margin: 3rem 0 0 0; padding: 3rem 1.5rem;
+        }
+        .article-cta-inner {
+            max-width: 740px; margin: 0 auto; text-align: center;
+        }
+        .article-cta h3 {
+            font-size: 1.5rem; margin-bottom: 0.75rem; color: var(--navy);
+        }
+        .article-cta p {
+            color: var(--text-light); margin-bottom: 1.5rem; font-size: 0.95rem;
+        }
+        .btn-primary {
+            display: inline-block; background: var(--copper); color: var(--white);
+            padding: 0.8rem 1.75rem; border-radius: 4px; text-decoration: none;
+            font-weight: 600; font-size: 0.9rem; letter-spacing: 0.02em;
+            transition: all 0.3s;
+        }
+        .btn-primary:hover { background: var(--copper-light); transform: translateY(-1px); }
+
+        /* --- FOOTER --- */
+        .footer { background: var(--navy); color: rgba(255,255,255,0.5); padding: 2.5rem 0 1.5rem; }
+        .footer-inner {
+            max-width: 1140px; margin: 0 auto; padding: 0 1.5rem;
+            display: flex; justify-content: space-between;
+            align-items: center; flex-wrap: wrap; gap: 0.75rem;
+        }
+        .footer-brand { display: flex; align-items: center; gap: 0.5rem; }
+        .footer-logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem; font-weight: 700; color: var(--white);
+        }
+        .footer-logo-text span { color: var(--copper); }
+        .footer-links { display: flex; gap: 1.25rem; }
+        .footer-links a {
+            color: rgba(255,255,255,0.5); text-decoration: none;
+            font-size: 0.82rem; transition: color 0.3s;
+        }
+        .footer-links a:hover { color: var(--copper-light); }
+        .footer-copy {
+            width: 100%; text-align: center; font-size: 0.75rem;
+            margin-top: 1.5rem; padding-top: 1.25rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        /* --- ANIMATIONS --- */
+        .fade-up {
+            opacity: 0; transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 960px) {
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex; flex-direction: column; position: absolute;
+                top: 100%; left: 0; right: 0; background: var(--navy);
+                padding: 1.25rem 1.5rem; gap: 0.75rem;
+                border-top: 1px solid rgba(255,255,255,0.08);
+            }
+            .hamburger { display: flex; }
+        }
+        @media (max-width: 640px) {
+            .article-hero { min-height: 50vh; }
+            .article-hero h1 { font-size: 1.75rem; }
+            .article-container { padding: 2rem 1.5rem; }
+            .article-body h2 { font-size: 1.4rem; }
+            .article-body h3 { font-size: 1.1rem; }
+            .article-hero-meta { flex-direction: column; gap: 0.75rem; align-items: flex-start; }
+            .stat-box { display: block; margin-bottom: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-brand">
+            <svg class="nav-logo-mark" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="34" height="34" rx="5" fill="#0F1C2E" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
+                <path d="M9 9h16v3.2H13.2v3.6h9.8v3.2h-9.8v7.8H9V9z" fill="#C17F3E"/>
+                <rect x="25.5" y="9" width="1.5" height="17.8" fill="#2A9D8F" opacity="0.6" rx="0.75"/>
+            </svg>
+            <div class="nav-logo-text">Forge<span>line</span></div>
+        </a>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html#about">About</a>
+            <a href="index.html#services">Services</a>
+            <a href="index.html#industries">Industries</a>
+            <a href="index.html#thinking">Thinking</a>
+            <a href="index.html#contact" class="nav-cta">Start a Conversation</a>
+        </div>
+        <div class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</nav>
+
+<!-- ARTICLE HERO -->
+<section class="article-hero">
+    <div class="article-hero-content">
+        <a href="index.html#thinking" class="article-back"></a>
+        <div class="article-hero-label">Strategy</div>
+        <h1>From Intel to Action: When Research Becomes a Strategic Imperative</h1>
+        <div class="article-hero-meta">
+            <span>7 min read</span>
+            <span>April 2026</span>
+        </div>
+    </div>
+</section>
+
+<!-- ARTICLE BODY -->
+<article class="article-container">
+    <div class="article-body fade-up">
+        <p>Most companies have a intelligence problem, but not the kind they think. They don't lack data or research capacity. They lack the ability to turn either into decisions that matter.</p>
+
+        <p>Walk through the halls of any mid-market industrial company or PE firm and you'll find the same pattern: stacks of reports, databases full of competitor intelligence, market analysis languishing in shared drives, strategic briefings sent to inboxes and never read. The research is there. The insight is there. The action is not.</p>
+
+        <p>There's a critical inflection point in this journey—a moment where competitive intelligence stops being interesting background reading and becomes the thing that determines whether you win or lose. Understanding what triggers that shift, and how to build the bridge from intel to action, separates firms that extract real value from their research from those that just collect it.</p>
+
+        <h2>What Triggers the Shift?</h2>
+
+        <p>The gap between intelligence and action closes when one of four things happens:</p>
+
+        <h3>A Competitor Makes a Move You Didn't See Coming</h3>
+
+        <p>You hear through your network—or worse, through the market—that a competitor has entered a segment you thought was yours, acquired a supplier you were courting, or announced a capability you didn't know they were developing. The blindness is painful. More painfully, you realize that the signals were visible months earlier, scattered across trade publications, patent filings, and supply chain rumors. You just weren't listening.</p>
+
+        <p>That's the moment executives start asking harder questions about market visibility. This is no longer a nice-to-have. It's a business continuity issue.</p>
+
+        <h3>A Deal Falls Through Because You Relied on the Seller's Narrative</h3>
+
+        <p>You're diligencing an acquisition. The seller presents a glossy picture of market position, customer stickiness, competitive moats. You conduct diligence. But somewhere between the CIM and the boardroom, someone should have asked: what is the actual competitive environment? How has it shifted in the last 18 months? What competitive moves are we missing? What would an independent assessment of the seller's claims look like?</p>
+
+        <p>Too often, diligence is built on the seller's playbook, not on an independent read of the market. When that deal either dies or underperforms, someone finally asks why there wasn't objective intelligence backing the underwriting.</p>
+
+        <h3>Your Board Asks "What's the Competitive Landscape?" and Nobody Has a Real Answer</h3>
+
+        <p>The board is asking strategic questions now. They want to know: where are we vulnerable? What are the emerging players? What are the secular trends? How are our competitors positioning? And the response comes back: "We'll put together a report." Two months later, nobody has read it.</p>
+
+        <p>The question reveals a hard truth: if you don't have a continuous read on your competitive environment, you're flying blind at the strategic level. And intelligence that doesn't inform board-level decisions is just noise.</p>
+
+        <h3>Speed Becomes a Competitive Weapon</h3>
+
+        <p>The market moves faster than your planning cycles. A competitor can launch a new product, pivot their go-to-market, or consolidate an adjacent sector while you're still in committee. The company with the fastest decision cycle wins. Not the biggest. Not the best-resourced. The fastest.</p>
+
+        <p>When you realize that your four-month strategic planning window is slower than your competitor's two-week announcement cycle, you stop asking "do we need intelligence?" and start asking "how do we get it faster?"</p>
+
+        <h2>The OODA Loop Applied to Business</h2>
+
+        <p>The framework that explains this isn't from business school. It comes from Air Force Colonel John Boyd, who studied fighter pilot performance during the Korean War. Boyd observed that the pilots who won weren't the fastest or the most maneuverable. They were the pilots who could cycle through a decision loop faster than their opponents.</p>
+
+        <p>He called it the OODA loop:</p>
+
+        <ul>
+            <li><strong>Observe:</strong> Gather data about the environment and your competitor's moves</li>
+            <li><strong>Orient:</strong> Analyze that data through your strategic lens, experience, and mental models</li>
+            <li><strong>Decide:</strong> Form options and pick a course of action</li>
+            <li><strong>Act:</strong> Execute the decision and adjust based on feedback</li>
+        </ul>
+
+        <p>The original insight was simple but profound: the pilot who cycles through Observe-Orient-Decide-Act faster than the opponent stays inside their decision loop. They can anticipate moves before the opponent sees them coming. They can adjust faster. They win.</p>
+
+        <p>The same logic applies to markets. The company with the fastest OODA loop—the one that observes competitive moves first, orients them into strategy quickest, decides and acts while others are still planning—compounds an edge over time. They're not necessarily smarter or bigger. They're just faster.</p>
+
+        <div class="stat-callout">
+            <span class="stat-number">3-5x ROI</span>
+            <p>Firms with integrated competitive intelligence programs report this return within the first year—and substantially higher over three years.</p>
+        </div>
+
+        <p>This is why private equity firms increasingly use scenario simulation, outside-in competitive intelligence, and predictive analytics as core value creation levers. Funds that integrate intelligence into their deal workflow and portfolio strategy consistently outperform those relying on gut and relationships alone. They're essentially shortening their OODA loop.</p>
+
+        <h2>The ROI Is Real—And Documented</h2>
+
+        <p>If competitive intelligence is this important, you'd expect to see strong evidence. You do:</p>
+
+        <div style="margin: 1.5rem 0;">
+            <div class="stat-box">
+                <div class="stat-box-number">411%</div>
+                <div class="stat-box-label">ROI over 3 years</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-box-number">83%</div>
+                <div class="stat-box-label">Report ROI within 3 months</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-box-number">45%</div>
+                <div class="stat-box-label">Faster strategic decisions</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-box-number">28%</div>
+                <div class="stat-box-label">Better market positioning</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-box-number">52%</div>
+                <div class="stat-box-label">Revenue growth (manufacturing)</div>
+            </div>
+        </div>
+
+        <p>The pattern across studies is consistent: firms that systematically use competitive intelligence in their strategic process see measurable financial outcomes. More deals close. Valuations are more confident. Exits are better positioned. Portfolio companies grow faster because management sees competitive threats and opportunities earlier.</p>
+
+        <p>Yet here's the paradox: even in firms that measure high ROI from intelligence, research shows that <em>only about 50% of collected intelligence actually gets used</em>. The rest sits on the shelf, reviewed once and filed away. It wasn't that the intelligence was bad. It just wasn't built for action.</p>
+
+        <h2>Why Intelligence Sits on the Shelf: Failure Modes</h2>
+
+        <p>If ROI is so clear, why do most intelligence programs underperform? There are five common failure modes:</p>
+
+        <h3>1. Treated as a Deliverable, Not a Decision Input</h3>
+
+        <p>Intelligence gets commissioned. A report gets delivered. It's presented in a meeting. And then nobody is accountable for what happens next. There's no clear owner saying, "Based on this intelligence, here's what we're doing differently." Intelligence becomes something you check off, not something you act on.</p>
+
+        <h3>2. Unclear Objectives</h3>
+
+        <p>Intelligence is gathered "just in case." It's broadly focused on competitors or markets rather than answering a specific strategic question. The result is a 60-page overview that touches everything and decides nothing. It's thorough and irrelevant at the same time.</p>
+
+        <h3>3. No Single Owner Synthesizing Across Silos</h3>
+
+        <p>Sales has one view of the market. Product has another. Business development has a third. Finance has a fourth. Each is probably right within their domain, but nobody is integrating across to form a coherent strategic picture. The intelligence exists but it's fragmented.</p>
+
+        <h3>4. Intelligence-to-Decision Cycle Is Too Slow</h3>
+
+        <p>By the time the research is finished, formatted, reviewed, and presented, market conditions have shifted. The intelligence answers yesterday's question. A deal you were considering has already closed. A competitor's move you were assessing is yesterday's news.</p>
+
+        <h3>5. The Format Problem: Long Reports Nobody Reads</h3>
+
+        <p>The classic intelligence deliverable is an 80-page report with extensive appendices. It's thorough. It's comprehensive. And nobody reads it. Executives need a one-page brief that tells them what changed, what it means, and what to do. They don't need a dissertation. They need a decision trigger.</p>
+
+        <h2>Building Intelligence That Drives Decisions</h2>
+
+        <p>The companies that get real value from intelligence do three things differently:</p>
+
+        <h3>1. Define the Decision First, Gather Intelligence Second</h3>
+
+        <p>Don't start with "let's understand our competitive landscape." Start with "we're considering this market entry, acquisition, or strategic shift—what do we need to know to make that decision with conviction?" Intelligence should be built backward from the decision that needs to be made.</p>
+
+        <p>This changes everything. It focuses the research. It sets clear success criteria. It makes sure the intelligence lands at the right level of detail and specificity.</p>
+
+        <h3>2. Structure Deliverables for Action</h3>
+
+        <p>The template should look like this:</p>
+
+        <ul>
+            <li><strong>Executive summary (1 page):</strong> What changed? What does it mean? What's the recommendation?</li>
+            <li><strong>Strategic context (3-5 pages):</strong> The evidence, the analysis, the scenarios, the risks</li>
+            <li><strong>Evidence appendix:</strong> Source citations, raw data, supporting details for those who want to go deeper</li>
+        </ul>
+
+        <p>This format respects both the decision-maker's time and the analyst's work. The executive gets what they need to act. The researcher's analysis is preserved for those who want to challenge or build on it.</p>
+
+        <h3>3. Integrate Intelligence Into Existing Decision Processes</h3>
+
+        <p>Intelligence doesn't live in a separate universe. It lives in your investment committee, your board prep, your quarterly planning. When there's a deal on the table, intelligence is part of the diligence. When strategy is being set, competitive intelligence informs the conversation. When portfolio companies are being optimized for exit, market positioning is informed by continuous competitive monitoring.</p>
+
+        <p>The companies that extract maximum value aren't the ones with the biggest intelligence teams. They're the ones where intelligence is woven into how decisions actually get made.</p>
+
+        <h2>The Private Equity Playbook</h2>
+
+        <p>PE firms understand this intuitively, because deal economics force clarity on what matters:</p>
+
+        <p><strong>Pre-deal:</strong> Intelligence is risk reduction and valuation confidence. You're answering: are the seller's claims about competitive position, market share, and customer economics supported by independent evidence? What competitive risks are we pricing in? Is this valuation rational given the competitive environment?</p>
+
+        <p><strong>During portfolio ownership:</strong> Competitive intelligence is value creation. You're using it to identify white space for product expansion, spot emerging competitive threats, understand pricing power, and position the company for a stronger exit.</p>
+
+        <p><strong>At exit:</strong> Intelligence backs the market narrative. You're not just presenting a business, you're presenting it against the backdrop of competitive dynamics, market tailwinds, and positioning. Buyers who see clear evidence that the business is winning against specific competitors pay more.</p>
+
+        <p>Funds that systematically integrate this intelligence into their deal workflow, portfolio meetings, and exit strategy outperform those that treat intelligence as a one-time due diligence exercise. They're compounding advantage over multiple deals.</p>
+
+        <div class="stat-callout">
+            <span class="stat-number">50%</span>
+            <p>The percentage of collected intelligence that actually gets used in most organizations. The other half gathers dust. The difference isn't data quality—it's whether the intelligence was built for a specific decision.</p>
+        </div>
+
+        <h2>The Question Isn't Whether You Need Intelligence</h2>
+
+        <p>Every company at scale is now running some form of competitive intelligence. The question is whether the intelligence you have is actually driving decisions, de-risking deals, and shaping strategy—or whether it's just adding to the noise.</p>
+
+        <p>The inflection point we started with isn't about having more research. It's about closing the loop from observation to action. It's about building intelligence systems where the decision owner, the analyst, and the timeline are all aligned. It's about treating intelligence not as a deliverable but as the input that changes how you operate.</p>
+
+        <p>The companies that do this don't just understand their markets better. They move faster. They make better bets. They see risks before they materialize and opportunities before they're obvious. Over time, that compounds into significant advantage.</p>
+
+        <p>The question for you: is your intelligence driving decisions, or just informing them?</p>
+
+    </div>
+</article>
+
+<!-- ARTICLE CTA -->
+<section class="article-cta fade-up">
+    <div class="article-cta-inner">
+        <h3>Intelligence built for action</h3>
+        <p>Most competitive research collects dust. Ours is designed to move. If your team is struggling to turn research into strategy, let's talk about how to close that loop.</p>
+        <a href="index.html#contact" class="btn-primary">Start a Conversation</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <svg width="28" height="28" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="5" fill="#0F1C2E" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/><path d="M9 9h16v3.2H13.2v3.6h9.8v3.2h-9.8v7.8H9V9z" fill="#C17F3E"/><rect x="25.5" y="9" width="1.5" height="17.8" fill="#2A9D8F" opacity="0.6" rx="0.75"/></svg>
+            <div class="footer-logo-text">Forge<span>line</span></div>
+        </div>
+        <div class="footer-links">
+            <a href="index.html#about">About</a>
+            <a href="index.html#services">Services</a>
+            <a href="index.html#industries">Industries</a>
+            <a href="index.html#thinking">Thinking</a>
+            <a href="index.html#contact">Contact</a>
+            <a href="mailto:info@forgelineco.com">info@forgelineco.com</a>
+        </div>
+        <div class="footer-copy">&copy; 2026 Forgeline Consulting LLC. All rights reserved.</div>
+    </div>
+</footer>
+
+<script>
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
+
+    // Fade-up animation on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                document.getElementById('navLinks').classList.remove('open');
+            }
+        });
+    });
+</script>
+</body>
+</html>
